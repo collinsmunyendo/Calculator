@@ -12,6 +12,25 @@ def get_variable(num):
     i += 1
 
 # other functions
+def factorial():
+    num = int(display.get())
+    if num == 1:
+        clear_all()
+        display.insert(0, num)
+
+    else:
+        list_num = []
+        while num > 1:
+            list_num.append(num)
+            num -= 1
+
+        factor = 1
+        for x in list_num:
+            factor *= x
+
+        clear_all()
+        display.insert(0, factor)
+
 def calculate():
     entire_string = display.get()
     try:
@@ -78,7 +97,7 @@ Button(root, text="(", command=lambda : get_operator("(")).grid(row=4, column=4)
 Button(root, text="exp", command=lambda : get_operator("**")).grid(row=5, column=4)
 
 Button(root, text="<-", command=lambda : back_space()).grid(row=2, column=5)
-Button(root, text="x!").grid(row=3, column=5)
+Button(root, text="x!", command=lambda : factorial()).grid(row=3, column=5)
 Button(root, text=")", command=lambda : get_operator(")")).grid(row=4, column=5)
 Button(root, text="^2", command=lambda : get_operator("**2")).grid(row=5, column=5)
 
